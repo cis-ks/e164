@@ -1,0 +1,57 @@
+{
+  "name": "php-standard-itu-t/e164",
+  "type": "library",
+  "description": "Standard ITU-T E.164 transposed to PHP",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "itu-t",
+    "international telecommunications union",
+    "telecommunication standardization sector",
+    "standard",
+    "E.164"
+  ],
+  "homepage": "https://github.com/php-standard-itu-t/e164",
+  "support": {
+    "email": "github-support@swarmtech.fr"
+  },
+  "config": {
+    "process-timeout": 600,
+    "sort-packages": true
+  },
+  "authors": [
+    {
+      "name": "gary gitton",
+      "homepage": "http://www.github.com/garygitton"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ItuT\\E164\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ItuTTest\\E164\\": "test/"
+    }
+  },
+  "require": {
+    "php": "^7.0 || ~8.0.0 || ~8.1.0",
+    "webmozart/assert": "^1.9.1 || ^1.10",
+    "myclabs/php-enum": "^1.6.6 || ^1.7.7 || 1.7.0 || ^1.8.3",
+    "php-standard-iso/iso-3166-1": "^1.0.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.5.14 || ^7.5.20 || ^8.5.23 || ^9.5.13 || dev-master"
+  },
+  "scripts": {
+    "check": [
+      "@cs-check",
+      "@test"
+    ],
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf",
+    "test": "phpunit --colors=always",
+    "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+    "static-analysis": "psalm --shepherd --stats"
+  }
+}
