@@ -12,6 +12,9 @@ class MSISDNTest extends TestCase
     public function goodValues(): array
     {
         return [
+            'from saint kitts and nevis msisdn' => [
+                '186945612345',
+            ],
             'from usa msisdn' => [
                 '14155552671'
             ],
@@ -33,5 +36,16 @@ class MSISDNTest extends TestCase
         $instance = MSISDN::fromString($value);
 
         $this->assertInstanceOf(MSISDN::class, $instance);
+    }
+
+    /**
+     * @test
+     * @dataProvider goodValues
+     */
+    public function methodToStringWillReturnsExpectedValues($msisdnValue)
+    {
+        $instance = MSISDN::fromString($msisdnValue);
+
+        $this->assertEquals($msisdnValue, $instance->__toString());
     }
 }

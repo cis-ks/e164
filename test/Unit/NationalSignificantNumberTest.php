@@ -36,7 +36,7 @@ class NationalSignificantNumberTest extends TestCase
      * @test
      * @dataProvider goodValues
      */
-    public function staticMethodFromStringWithGoodValuesReturnsInstance($msisdn, $expectedValue)
+    public function staticMethodFromMSISDNValueWithGoodValuesReturnsInstance($msisdn, $expectedValue)
     {
         $instance = NationalSignificantNumber::fromMSISDNValue($msisdn);
 

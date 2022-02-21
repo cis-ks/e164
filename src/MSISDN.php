@@ -31,4 +31,19 @@ class MSISDN
 
         return new self($countryCode, $nationalSignificantNumber);
     }
+
+    public function getCountryCode(): CountryCode
+    {
+        return $this->countryCode;
+    }
+
+    public function getNationalSignificantNumber(): NationalSignificantNumber
+    {
+        return $this->nationalSignificantNumber;
+    }
+
+    public function __toString(): string
+    {
+        return $this->countryCode->value() . $this->nationalSignificantNumber->value();
+    }
 }
