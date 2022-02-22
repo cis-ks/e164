@@ -21,7 +21,7 @@ class NationalSignificantNumber
         $countryCode = CountryCode::fromMSISDNValue($msisdnValue);
         $nationalSignificantNumberValue = substr($msisdnValue, strlen($countryCode->value()));
 
-        return new self($nationalSignificantNumberValue);
+        return new static($nationalSignificantNumberValue);
     }
 
     public function value(): string

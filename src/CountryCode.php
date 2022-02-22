@@ -451,7 +451,7 @@ class CountryCode extends Enum
 
         $longestValue = array_shift($possibleCountryCodeValues);
 
-        return new self($longestValue);
+        return new static($longestValue);
     }
 
     public function value(): string
