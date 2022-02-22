@@ -24,12 +24,12 @@ class MSISDN
         $this->nationalSignificantNumber = $nationalSignificantNumber;
     }
 
-    public static function fromString(string $value): self
+    public static function fromString(string $value)
     {
         $countryCode = CountryCode::fromMSISDNValue($value);
         $nationalSignificantNumber = NationalSignificantNumber::fromMSISDNValue($value);
 
-        return new self($countryCode, $nationalSignificantNumber);
+        return new static($countryCode, $nationalSignificantNumber);
     }
 
     public function getCountryCode(): CountryCode
