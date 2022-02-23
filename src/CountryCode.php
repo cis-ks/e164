@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ItuT\E164;
 
 use MyCLabs\Enum\Enum;
+use Webmozart\Assert\Assert;
 
 /**
  * @method static CountryCode AFGHANISTAN()
@@ -435,6 +436,8 @@ class CountryCode extends Enum
 
     public static function fromMSISDNValue(string $value)
     {
+        Assert::digits($value);
+
         $possibleCountryCodeValues = [];
         foreach(self::toArray() as $countryCodeValue) {
             if(strpos($value, $countryCodeValue) !== 0) {

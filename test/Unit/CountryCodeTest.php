@@ -43,4 +43,33 @@ class CountryCodeTest extends TestCase
         $this->assertInstanceOf(CountryCode::class, $instance);
         $this->assertEquals($expected->value(), $instance->value());
     }
+
+    public function badValues(): array
+    {
+        return [
+            [
+                '+186945612345',
+            ],
+            [
+                '+14155552671',
+            ],
+            [
+                '+442071838750',
+            ],
+            [
+                '+551155256325',
+            ],
+        ];
+    }
+
+    /**
+     * @test
+     * @dataProvider badValues
+     */
+    public function staticMethodFromMSISDNValueWithBadValuesThrowException($value)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        $instance = CountryCode::fromMSISDNValue($value);
+    }
 }

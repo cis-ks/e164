@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace ItuT\E164;
 
+use Webmozart\Assert\Assert;
+
 class MSISDN
 {
     /**
@@ -26,6 +28,8 @@ class MSISDN
 
     public static function fromString(string $value)
     {
+        Assert::digits($value);
+
         $countryCode = CountryCode::fromMSISDNValue($value);
         $nationalSignificantNumber = NationalSignificantNumber::fromMSISDNValue($value);
 

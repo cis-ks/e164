@@ -48,4 +48,33 @@ class MSISDNTest extends TestCase
 
         $this->assertEquals($msisdnValue, $instance->__toString());
     }
+
+    public function badValues(): array
+    {
+        return [
+            [
+                '+186945612345',
+            ],
+            [
+                '+14155552671',
+            ],
+            [
+                '+442071838750',
+            ],
+            [
+                '+551155256325',
+            ],
+        ];
+    }
+
+    /**
+     * @test
+     * @dataProvider badValues
+     */
+    public function staticMethodFromStringWithBadValuesReturnsInstance($value)
+    {
+        $this->expectException(\InvalidArgumentException::class);
+
+        $instance = MSISDN::fromString($value);
+    }
 }
